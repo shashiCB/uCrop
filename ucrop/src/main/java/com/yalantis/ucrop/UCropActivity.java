@@ -596,15 +596,17 @@ public class UCropActivity extends AppCompatActivity {
     };
 
     private void setInitialState() {
-        if (mShowBottomControls) {
-            if (mWrapperStateAspectRatio.getVisibility() == View.VISIBLE) {
-                setWidgetState(R.id.state_aspect_ratio);
+        try {
+            if (mShowBottomControls) {
+                if (mWrapperStateAspectRatio.getVisibility() == View.VISIBLE) {
+                    setWidgetState(R.id.state_aspect_ratio);
+                } else {
+                    setWidgetState(R.id.state_scale);
+                }
             } else {
-                setWidgetState(R.id.state_scale);
+                setAllowedGestures(0);
             }
-        } else {
-            setAllowedGestures(0);
-        }
+        }catch (Exception e){ }
     }
 
     private void setWidgetState(@IdRes int stateViewId) {
