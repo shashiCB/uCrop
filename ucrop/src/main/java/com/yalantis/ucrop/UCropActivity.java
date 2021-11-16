@@ -606,7 +606,9 @@ public class UCropActivity extends AppCompatActivity {
             } else {
                 setAllowedGestures(0);
             }
-        }catch (Exception e){ }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     private void setWidgetState(@IdRes int stateViewId) {
